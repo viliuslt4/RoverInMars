@@ -4,14 +4,16 @@ import store from './store'
 import VueRouter from 'vue-router'
 import Routes from './routes'
 
-Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode:'history',
   routes: Routes
 })
-
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
 new Vue({
   el:'#app',
   store,
