@@ -143,5 +143,14 @@ input:-moz-placeholder, textarea:-moz-placeholder { /* Firefox 18- */
 	transform: translateY(-18px) scale(1);
 	font-size: 12px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 </style>

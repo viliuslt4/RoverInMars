@@ -5,10 +5,10 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field type="number" hide-details label="Width" v-model.number="dimensions.width" max-length="6"></v-text-field>
+            <v-text-field type="number" hide-details label="Width" v-model.number="dimensions.width" @keypress="isNumber($event)"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field type="number" hide-details label="Height" v-model.number="dimensions.height" max-length="6"></v-text-field>
+            <v-text-field type="number" hide-details label="Height" v-model.number="dimensions.height" @keypress="isNumber($event)"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { between } from 'vuelidate/lib/validators'
+
 export default {
   name: 'dimensions',
   data(){
@@ -29,20 +29,19 @@ export default {
       }
     }
   },
-  validations: {
-    dimensions:{
-      width:{
-        between: between(1, 999999)
-      },
-      height:{
-        between: between(1, 999999)
-      }
-    }
-  },
   methods:{
     SetDimensions: function(){
       this.$store.commit('setDimensions', this.dimensions)
       this.$router.push('rover')
+    },
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event
+      var charCode = (evt.which) ? evt.which : evt.keyCode
+      if ((charCode > 31 && (charCode < 48 || charCode > 57))) {
+        evt.preventDefault()
+      } else {
+        return true;
+      }
     }
   }
 }
@@ -54,5 +53,8 @@ export default {
 }
 .dimensions{
   padding:32px 0 0;
+}
+.dimensions form button{
+  margin-top:16px;
 }
 </style>
