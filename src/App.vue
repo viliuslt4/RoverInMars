@@ -139,4 +139,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* IE 10+ */
 input:-moz-placeholder, textarea:-moz-placeholder { /* Firefox 18- */
   color: black!important;
 }
+.v-text-field .v-label--active{
+	transform: translateY(-18px) scale(1);
+	font-size: 12px;
+}
+
 </style>

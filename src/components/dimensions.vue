@@ -5,10 +5,10 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <v-text-field placeholder="Width" v-model="width" max-length="6"></v-text-field>
+            <v-text-field type="number" hide-details label="Width" v-model.number="dimensions.width" max-length="6"></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field placeholder="Height" v-model="height" max-length="6"></v-text-field>
+            <v-text-field type="number" hide-details label="Height" v-model.number="dimensions.height" max-length="6"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -18,24 +18,38 @@
 </template>
 
 <script>
+import { between } from 'vuelidate/lib/validators'
 export default {
   name: 'dimensions',
   data(){
     return{
-      width:null,
-      height:null
+      dimensions:{
+        width: null,
+        height: null
+      }
+    }
+  },
+  validations: {
+    dimensions:{
+      width:{
+        between: between(1, 999999)
+      },
+      height:{
+        between: between(1, 999999)
+      }
     }
   },
   methods:{
-    SetDimensions: () =>{
-      console.log("sets");
+    SetDimensions: function(){
+      this.$store.commit('setDimensions', this.dimensions)
+      this.$router.push('rover')
     }
   }
 }
 </script>
 
 <style>
-form{
+.dimensions form{
   max-width:400px;
 }
 .dimensions{
