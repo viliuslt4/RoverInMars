@@ -3,8 +3,10 @@
 
         <div class="overlay-bg">
             <div class="content-wrapper">
-                <v-row>
-                    <v-col cols="6" class="form-wrapper">
+
+            <v-container>
+                <v-layout row>
+                    <v-flex xs12 md6 class="form-wrapper">
                         <h2>Send commands to rover</h2>
                         <p>Dimension width: {{dimensions.width}}</p>
                         <p>Dimension height: {{dimensions.height}}</p>
@@ -12,9 +14,9 @@
                             <v-text-field v-model="command" label="Commands (A, L, R)"></v-text-field>
                             <v-btn type="submit">Send commands</v-btn>
                         </form>
-                    </v-col>
-                    <v-col cols="6">
-                        <h4>Current rover position: {{rover.orientation + " ("+ rover.position.h + " , " + rover.position.v +")"}}</h4>
+                    </v-flex>
+                    <v-flex xs12 md6>
+                        <h4>Rover position: {{rover.orientation + " ("+ rover.position.h + " , " + rover.position.v +")"}}</h4>
                         <div class="output" v-show="output.length > 0">
                             <h4>Output</h4>
                             <div class="scroll-output">
@@ -22,8 +24,9 @@
                             </div>
                             <v-btn v-on:click="output = []">Clear output</v-btn>
                         </div>
-                    </v-col>
-                </v-row>
+                    </v-flex>
+                </v-layout>
+            </v-container> 
 
             </div>
         </div>
@@ -132,5 +135,8 @@ h4{
 }
 .scroll-output p{
     margin-bottom:5px;
+}
+.content-wrapper .container{
+    padding:0px 12px;
 }
 </style>

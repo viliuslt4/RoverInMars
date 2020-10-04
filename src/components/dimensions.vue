@@ -3,14 +3,14 @@
     <h3>Set dimensions of the square</h3>
     <form v-on:submit.prevent="SetDimensions">
       <v-container>
-        <v-row>
-          <v-col cols="6">
+        <v-layout row class="space-between">
+          <v-flex xs12 md5>
             <v-text-field type="number" hide-details label="Width" v-model.number="dimensions.width" @keypress="isNumber($event)"></v-text-field>
-          </v-col>
-          <v-col cols="6">
+          </v-flex>
+          <v-flex xs12 md5>
             <v-text-field type="number" hide-details label="Height" v-model.number="dimensions.height" @keypress="isNumber($event)"></v-text-field>
-          </v-col>
-        </v-row>
+          </v-flex>
+        </v-layout>
       </v-container>
       <v-btn type="submit">Set dimensions</v-btn>
     </form>

@@ -99,7 +99,6 @@ p,span,a{
 	height:100%;
 	display:flex;
 	align-items: center;
-	padding:0;
 }
 .content-wrapper{
 	position:relative;
@@ -148,9 +147,34 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+.space-between{
+	justify-content: space-between;
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+@media(max-width:576px){
+	h1{
+		font-size:32px;
+	}
+	h2{
+		font-size:28px;
+	}
+	h3{
+		font-size:24px;
+	}
+	h4{
+		font-size:20px;
+	}
+	h5{
+		font-size:16px;
+	}
+
+}
+@media(max-width:960px){
+	.overlay-bg{
+		margin: 0 12px;
+	}
 }
 </style>

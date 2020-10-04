@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuetify,{
     VTextField,
-    VRow,
-    VCol,
+    VFlex,
+    VLayout,
     VBtn,
     VContainer,
     VMain
@@ -14,8 +14,8 @@ Vue.use(Vuetify, {
         VBtn,
         VContainer,
         VMain,
-        VRow,
-        VCol
+        VFlex,
+        VLayout,
     },
 })
 
