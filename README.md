@@ -1,24 +1,6 @@
-# roverinmars
+#### How to install and run app:
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone this **branch** or download project as zip and unzip it to your projects location.
+2. Navigate to your project with terminal, or cmd and run command `npm install`.
+3. To start app run `npm run serve`.
+4. Open `http://localhost:8080/` on browser.
